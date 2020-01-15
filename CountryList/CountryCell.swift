@@ -13,7 +13,7 @@ class CountryCell: UITableViewCell {
     var nameLabel: UILabel?
     var extensionLabel: UILabel?
     
-    var country: Country? {
+    var country: CountryPod? {
         didSet {
             if let name = country!.name {
                 nameLabel?.text = "\(name)"
@@ -22,7 +22,7 @@ class CountryCell: UITableViewCell {
         }
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
         
