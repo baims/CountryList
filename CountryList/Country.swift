@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Country: NSObject {
+public class CountryPod: NSObject {
     
     public var countryCode: String
     public var phoneExtension: String
