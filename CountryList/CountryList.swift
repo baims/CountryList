@@ -9,23 +9,35 @@
 import UIKit
 
 public protocol CountryListDelegate: class {
-    func selectedCountry(country: Country)
+    func selectedCountry(country: CountryPod)
 }
 
+
 public class CountryList: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+
     
     var tableView: UITableView!
     var searchController: UISearchController?
     var resultsController = UITableViewController()
-    var filteredCountries = [Country]()
+    var filteredCountries = [CountryPod]()
     
     open weak var delegate: CountryListDelegate?
     
-    private var countryList: [Country] {
+    private var countryList: [CountryPod] {
         let countries = Countries()
         let countryList = countries.countries
         return countryList
     }
+    
+//    var indexList: [String] {
+//        var indexList: [String] = []
+//        for country in countryList {
+//            if let firstLetter = country.name?.characters.first?.description.lowercased() {
+//                if !indexList.contains(firstLetter) { indexList.append(firstLetter) }
+//            }
+//        }
+//        return indexList
+//    }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +121,7 @@ public class CountryList: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    @objc func handleCancel() {
+  @objc func handleCancel() {
         self.dismiss(animated: true, completion: nil)
     }
 }
